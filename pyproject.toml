@@ -1,0 +1,29 @@
+[project]
+name = "my-public-ip"
+version = "1.0.0"
+authors = [
+  { name="Erik Petersen", email="eht@it-trans.dk" },
+]
+description = "Get the public IP-address currently in use for accessing the internet via httpbin.org"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools >= 61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+my-public-ip = "my_public_ip.main:main"
+
